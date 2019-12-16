@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'novo')}">
+<body>
+<div class="container">
+  <div class='flex-item'>
+    <div class='flex-item-main'>
+      <h1>Novo Gestor Poupex</h1>
+    </div>
+  </div>
+<fieldset class="card">
+<div class="row">
+    <form name="form_novo_gestor" id="form_novo_gestor" method="POST">
+    <div class="form-group">
+        <label class='flex-item' for="txtNome">Nome: </label>
+        <input id= "txtNome" name="txtNome" type="text" class="form-control"> 
+    </div>
+    <div class="form-group">
+        <label class='flex-item' for="nrMatricula">Matriula: </label>
+        <input id= "nrMatricula" name="nrMatricula" type="text" class="form-control"> 
+    </div>
+    <div class="form-group">
+        <label class='flex-item' for="dtNascimento">Data de nascimento: </label>
+        <input id= "dtNascimento" name="dtNascimento" type="text" class="form-control"> 
+    </div>
+    <div class="form-group">
+        <label class='flex-item' for="lstSetor">Setor</label>
+        <select id="lstSetor" name="lstSetor" class="form-control">
+            <option value="">
+                Selecionar
+            </option>
+            <option value="A">
+                Administrativo
+            </option>
+            <option value="T">
+                Tecnologia
+            </option>
+            <option value="R">
+                Recursos humanos
+            </option>
+            <option value="H">
+                Help desk
+            </option>
+        </select>  
+    </div>
+    <div class="form-group">
+    <button type="button" class="btn btn-primary" id="btnSubmit" name="btnSubmit" onclick="document.form_novo_gestor.submit();">
+        <i class="fas fa-save"></i>
+        Salvar
+    </button>
+    </div>
+</form>
+</div>
+</fieldset>
+</div>  
