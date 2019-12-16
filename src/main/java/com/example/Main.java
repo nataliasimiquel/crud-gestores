@@ -69,18 +69,18 @@ public class Main {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
       
-      //  stmt.executeUpdate("CREATE TABLE db_gestores.tb_gestores " +
+      //  stmt.executeUpdate("CREATE TABLE public.tb_gestores " +
       //  " ( id_gestor integer NOT NULL GENERATED ALWAYS AS IDENTITY " +
       //  " ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 922337203 CACHE 1 )," +
       //  "  ds_nome text[] COLLATE pg_catalog.\"default\" NOT NULL, " +
       //  "  nr_matricula integer NOT NULL, " + "  dt_nascimento date NOT NULL, " +
       //  "  ds_setor \"char\" NOT NULL, " +
       //  "  CONSTRAINT tb_gestores_pkey PRIMARY KEY (id_gestor)  )");
-      //  stmt.executeUpdate("INSERT INTO db_gestores.tb_gestores( " +
+      //  stmt.executeUpdate("INSERT INTO public.tb_gestores( " +
       //  "  id_gestor, ds_nome, nr_matricula, dt_nascimento, ds_setor) " +
       //  "  VALUES (?, ?, ?, ?, ?);");
       
-      ResultSet rs = stmt.executeQuery("SELECT * FROM tb_gestores");
+      ResultSet rs = stmt.executeQuery("SELECT * FROM public.tb_gestores");
 
       ArrayList<JSONObject> output = new ArrayList<JSONObject>();
       while (rs.next()) {
@@ -106,7 +106,7 @@ public class Main {
     try (Connection connection = dataSource.getConnection()) {      
         Statement stmt = connection.createStatement();
         
-        ResultSet rs = stmt.executeQuery("SELECT * FROM tb_gestores WHERE id_gestor = " + id_gestor );
+        ResultSet rs = stmt.executeQuery("SELECT * FROM public.tb_gestores WHERE id_gestor = " + id_gestor );
 
         ArrayList<JSONObject> output = new ArrayList<JSONObject>();
         while (rs.next()) {
@@ -139,7 +139,7 @@ public class Main {
     String mensagem;
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      String sql = "UPDATE tb_gestores SET ds_nome = '" + body.get("txtNome") + "', nr_matricula = " + body.get("nrMatricula") + ", " +
+      String sql = "UPDATE public.tb_gestores SET ds_nome = '" + body.get("txtNome") + "', nr_matricula = " + body.get("nrMatricula") + ", " +
       " dt_nascimento = '" + body.get("dtNascimento") + "', ds_setor = '" + body.get("lstSetor") + "' " +
       " WHERE id_gestor = " + body.get ("id_gestor");
       if (stmt.executeUpdate(sql) > 1) {
@@ -162,7 +162,7 @@ public class Main {
     String mensagem;
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      String sql = "INSERT INTO tb_gestores( ds_nome, nr_matricula, dt_nascimento, ds_setor) "
+      String sql = "INSERT INTO public.tb_gestores( ds_nome, nr_matricula, dt_nascimento, ds_setor) "
       + "  VALUES ( '{" + body.get("txtNome") + "}', '" + body.get("nrMatricula") + "', '"
       + body.get("dtNascimento") + "', '" + body.get("lstSetor") + "')";
       //return sql;
@@ -181,7 +181,7 @@ public class Main {
     String mensagem;
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      String sql = "DELETE from tb_gestores WHERE id_gestor =  " + id_gestor;
+      String sql = "DELETE from public.tb_gestores WHERE id_gestor =  " + id_gestor;
       //return sql;
       stmt.executeUpdate(sql);
       mensagem = "Gestor excluido com sucesso";
@@ -199,7 +199,7 @@ public class Main {
    * try (Connection connection = dataSource.getConnection()) { Statement stmt =
    * connection.createStatement();
    * 
-   * stmt.executeQuery("UPDATE db_gestores.tb_gestores SET  " + "  ds_nome ='"+
+   * stmt.executeQuery("UPDATE public.tb_gestores SET  " + "  ds_nome ='"+
    * gestor.getDs_nome() +"', nr_matricula = '"+ gestor.getNr_matricula()
    * +"', dt_nascimento = '"+ gestor.getDt_nascimento() +"', ds_setor = '"+
    * gestor.getDs_setor() +"') " + "  VALUES ();");
