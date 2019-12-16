@@ -33,3 +33,19 @@ Os candidatos que demonstrarem aptidão na linguagem Java serão contactados par
 [i3]: https://github.com/maykelsb/crud-gestores/issues/3
 [i4]: https://github.com/maykelsb/crud-gestores/issues/4
 
+
+SQL Criação do Banco:
+
+
+CREATE TABLE db_gestores.tb_gestores (
+  ds_setor "char" NOT NULL,
+  dt_nascimento date NOT NULL,
+  nr_matricula integer NOT NULL,
+  ds_nome text[] NOT NULL,
+  id_gestor integer NOT NULL
+);
+
+ALTER TABLE db_gestores.tb_gestores ADD CONSTRAINT tb_gestores_pkey PRIMARY KEY (id_gestor)
+
+
+
