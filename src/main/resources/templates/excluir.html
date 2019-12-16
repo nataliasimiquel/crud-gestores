@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'excluir')}">
+
+<body>
+    <div class="container">
+        <div class='flex-item'>
+            <div class='flex-item-main'>
+                <div class="row">
+                    <h1>Deseja excluir dados gestor?</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-danger" id="btnSubmit" name="btnSubmit" onclick="window.location='/db'">
+                <i class="fas fa-save"></i>
+                Exluir
+        </div>
+    </div>

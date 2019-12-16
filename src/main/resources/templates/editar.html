@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'editar')}">
+<body>
+<div class="container">
+  <div class='flex-item'>
+    <div class='flex-item-main'>
+      <h1>Atualizar dados Gestor Poupex</h1>
+    </div>
+  </div>
+  <input type="hidden" id="jsonData" th:value="${records}">
+<fieldset class="card">
+<div class="row">
+    <form name="form_editar_gestor" id="form_editar_gestor" method="POST" action="processar_editar">
+    <div id="Gestores"></div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" id="btnSubmit" name="btnSubmit" onclick="document.form_editar_gestor.submit();">
+            <i class="fas fa-save"></i>
+            Salvar
+        </button>
+    </div>
+</form>
+</div>
+
+<script>
+    var gestores = JSON.parse(document.getElementById('jsonData').value);
+    if (gestores.length){
+      let div = document.getElementById('Gestores')
+      let html = ''
+      for (gestor of gestores){
+        html += "<div class=\"form-group\"> " +
+        " <input type=\"hidden\" id=\"id_gestor\" name=\"id_gestor\" value=\""+gestor.id_gestor+"\"> " +
+       " <label class='flex-item' for=\"txtNome\" >Nome: </label> " +
+       " <input id=\"txtNome\" name=\"txtNome\"  type=\"text\" class=\"form-control\" value=\""+gestor.nome+"\"> " + 
+    " </div> " +
+    "<div class=\"form-group\"> " +
+       " <label class='flex-item' for=\"nrMatricula\">Matriula: </label> " +
+       " <input id=\"nrMatricula\" name=\"nrMatricula\" type=\"text\" class=\"form-control\"  value=\""+gestor.matricula+"\" > " + 
+    "</div>"+
+    "<div class=\"form-group\"> "+
+        "<label class='flex-item' for=\"dtNascimento\">Data de nascimento: </label>" +
+     " <input id=\"dtNascimento\" name=\"dtNascimento\" type=\"text\" class=\"form-control\" value=\""+gestor.nascimento+"\" > " +
+    "</div>"+
+    "<div class=\"form-group\"> " +
+        "<label class='flex-item' for=\"lstSetor\">Setor</label>" +
+        "<select  id=\"lstSetor\" name=\"lstSetor\"  class=\"form-control\"> " +
+            "<option value=\"A\"";
+            if (gestor.setor == 'A') {
+                html += "selected";
+            }
+            html += "> " +
+             "Administrativo " +
+            "</option> " +
+            "<option value=\"T\"";
+            if (gestor.setor == 'T') {
+                html += "selected";
+            }
+            html += "> " +
+              "Tecnologia" +
+            "</option> " +
+            "<option value=\"R\"";
+            if (gestor.setor == 'R') {
+                html += "selected";
+            }
+            html += "> " +
+            " Recursos humanos " +
+            "</option>" +
+            "<option value=\"H\"";
+            if (gestor.setor == 'H') {
+                html += "selected";
+            }
+            html += "> " +
+             "   Help desk" +
+            "</option> " +
+       "  </select> " + 
+    "</div>";      
+    
+      }
+      div.innerHTML = html
+    }
+    </script>
+</fieldset>
+</div>  
