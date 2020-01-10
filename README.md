@@ -1,40 +1,37 @@
-# java-getting-started
+# Descrição
+**Melhoramento do layout** Atualização do layout a fim de melhorar a pagina e mostrar habilidades com CSS
 
-A barebones Java app, which can easily be deployed to Heroku.
+Este é um desafio para candidatos à vaga de estágio de desenvolvedor Java.
+O objetivo deste desafio é coletar informações sobre o familiaridade do candidato com ferramentas e tecnologias presentes no estágio.
 
-This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
+**Restrição:** O candidato deve se formar, **no mínimo**, no último semestre de **2020**. Candidatos com formação prevista **anterior** a essa data não serão avaliados.
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Running Locally
+## Instruções
+Para participar da avaliação, o candidato deve seguir os passos abaixos:
 
-Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
+1. Criar um fork deste repositório
+1. Desenvolver o CRUD descrito nas issues listadas abaixo. O código deve, obrigatoriamente, ser criado utilizando tecnologias Java para WEB
+   1. [#1 Criar gestor][i1]
+   1. [#2 Listar gestores][i2]
+   1. [#3 Editar gestor][i3]
+   1. [#4 Excluir gestor][i4]
+1. O código deve estar commitado no seu fork
+1. Publicar o código no [heroku](https://www.heroku.com/)
+1. **Opcional**: Separação entre frontend e backend é um plus
 
-```sh
-$ git clone https://github.com/heroku/java-getting-started.git
-$ cd java-getting-started
-$ mvn install
-$ heroku local:start
-```
+## Submissão
+Os candidatos receberão um e-mail com a data limite para submissão. O e-mail deverá ser respondido até a data limite, contendo as seguintes informações:
+* Nome do candidato
+* Ano e semestre previsto para formar
+* Link do seu fork no github
+* Link da publicação do heroku
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Os candidatos que demonstrarem aptidão na linguagem Java serão contactados para uma entrevista presencial e code review.
 
-If you're going to use a database, ensure you have a local `.env` file that reads something like this:
 
-```
-JDBC_DATABASE_URL=jdbc:postgresql://localhost:5432/java_database_name
-```
+[i1]: https://github.com/maykelsb/crud-gestores/issues/1
+[i2]: https://github.com/maykelsb/crud-gestores/issues/2
+[i3]: https://github.com/maykelsb/crud-gestores/issues/3
+[i4]: https://github.com/maykelsb/crud-gestores/issues/4
 
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-
-## Documentation
-
-For more information about using Java on Heroku, see these Dev Center articles:
-
-- [Java on Heroku](https://devcenter.heroku.com/categories/java)
